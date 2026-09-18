@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>JStreamlined connection</title></head>
+<body>
+<h1>Connect to a database</h1>
+<p th:if="${error}" th:text="${error}" role="alert"></p>
+<form method="post" action="/connect">
+  <label>Username <input name="username" required th:value="${connection.username}"></label><br>
+  <label>Password <input type="password" name="password" required></label><br>
+  <label>Database name <input name="database" required th:value="${connection.database}"></label><br>
+  <label>Schema <input name="schema" th:value="${connection.schema}"></label><br>
+  <button type="submit">Load schema</button>
+</form>
+</body>
+</html>

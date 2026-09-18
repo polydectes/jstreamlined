@@ -1,0 +1,8 @@
+# Copy to config/datasource.properties and keep credentials out of source control.
+jstreamlined.datasource.vendor=postgresql
+jstreamlined.datasource.host=localhost
+jstreamlined.datasource.port=5432
+jstreamlined.datasource.database=streamlined
+jstreamlined.datasource.username=
+jstreamlined.datasource.password=
+jstreamlined.datasource.schema=

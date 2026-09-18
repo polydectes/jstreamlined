@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>JStreamlined schema</title></head>
+<body>
+<h1 th:text="'Schema: ' + ${metadata.schema}"></h1>
+<a href="/">Change connection</a>
+<section th:each="table : ${metadata.tables}">
+  <h2 th:text="${table.name}"></h2>
+  <table>
+    <tr><th>Column</th><th>Type</th><th>Nullable</th><th>Primary key</th></tr>
+    <tr th:each="column : ${table.columns}">
+      <td th:text="${column.name}"></td><td th:text="${column.typeName}"></td>
+      <td th:text="${column.nullable}"></td><td th:text="${column.primaryKey}"></td>
+    </tr>
+  </table>
+  <h3>Relationships</h3>
+  <ul><li th:each="relationship : ${table.relationships}"
+      th:text="${relationship.sourceColumn + ' -> ' + relationship.targetTable + '.' + relationship.targetColumn}"></li></ul>
+</section>
+</body>
+</html>
